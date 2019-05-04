@@ -6,7 +6,7 @@ from multiprocessing import Pool, Manager
 from seeding import *
 
 
-class BLAST():
+class BLASTn():
 
     def __init__(self): 
         self._parser = argparse.ArgumentParser()

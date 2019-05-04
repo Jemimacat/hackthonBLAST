@@ -2,7 +2,7 @@ from Bio import SeqIO
 import fileinput
 from scoring import score_nt_seq
 
-# Nucleotides: Genering seeds
+# Genering seeds
 def seed_list_of_query_generating(query_seq,w=11):
     one_seed = {}
     num = len(query_seq) - w + 1
@@ -21,7 +21,7 @@ def query_seed_preparing(query_file,w=11):
         seeds.update({one_query:one_seed})
     return seeds
 
-# Nucleotides: Preparing database
+# Preparing database
 def database_seed_preparing(fasta,w=11):
     database = {}
     for db_record in SeqIO.parse(fasta, "fasta"):
@@ -38,13 +38,30 @@ def database_seed_preparing(fasta,w=11):
                         database[db_seq[i:i+w]][db_id].append(i)          
     return database   
 
-def scan_and_scoring(word_hash,db_hash,threshold=11):
+def one_query_scan_and_scoring(one_word_dict,db_dict,threshold=11):
     scores = {}
-    for word in word_hash.keys():
-        for db_record in db_hash.keys():
+    for word in one_word_dict.keys():
+        for db_record in db_dict.keys():
             score = score_nt_seq(word,db_record)
             if score >= threshold:
-                scores.update({word:{db_record:score}})
+                if not word in scores.keys():
+                    scores[word] = {}
+                if not db_record in scores[word].keys():
+                    scores[word][db_record] = []
+                scores[word][db_record] = score
+    return scores
+
+def merge_scan_and_scoring(word_dict,db_dict,threshold=11):
+    scores = {}
+    for query in word_dict.keys():
+        one_score = one_query_scan_and_scoring(word_dict[query],db_dict,threshold)
+        scores.update({query:one_score})
     return scores
     
-
+#test_query = 'GACAGCGACGCCGCGAGCCAGAAGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGGCCGGAGTATTGGGACCAGGAGACACGGAATATGTTGGCCCACTCACAGACTGACCGAGCGAACCTGGGGACCCTGCGCTACTACTACAACCAGAGCGAGGACGGTTCTCACACCATCCAGATAATGTATGGCTGCGACGTGGGGCCGGACGGGCGCTTCCTCCGCGTACCGGCAGG'
+test_database = 'A_nuc.fasta'
+test_query = 'query.txt'
+seeds = query_seed_preparing(test_query)
+db = database_seed_preparing(test_database)
+#scores  = merge_scan_and_scoring(seeds,db)
+print(db)
