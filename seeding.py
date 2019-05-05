@@ -1,4 +1,5 @@
 from Bio import SeqIO
+import numpy as np
 import fileinput
 from scoring import score_nt_seq
 
@@ -24,9 +25,11 @@ def query_seed_preparing(query_file,w=11):
 # Preparing database
 def database_seed_preparing(fasta,w=11):
     database = {}
+    genes = {}
     for db_record in SeqIO.parse(fasta, "fasta"):
         db_seq = str(db_record.seq)
         db_id = str(db_record.id).split(':')[1]
+        genes[db_id] = db_seq
         num = len(db_seq) - w + 1
         if num >= 0:
             for i in range(num):
@@ -36,7 +39,7 @@ def database_seed_preparing(fasta,w=11):
                         database[db_seq[i:i+w]][db_id] = [i]
                     else:
                         database[db_seq[i:i+w]][db_id].append(i)          
-    return database   
+    return database,genes
 
 def one_query_scan_and_scoring(one_word_dict,db_dict,threshold=11):
     scores = {}
@@ -58,10 +61,33 @@ def merge_scan_and_scoring(word_dict,db_dict,threshold=11):
         scores.update({query:one_score})
     return scores
     
+def build_hit_matrix(scores,query_dict,db_dict,genes):
+    
+    hit_matrix = {}
+    for (query,one_score) in scores.items():
+        hit_matrix[query] = {}
+        for (gene,seq) in genes.items():
+            matrix = np.zeros((len(query),len(seq)))
+            for word in one_score.keys():
+                for db_record in one_score[word]:
+                    for i in range(len(word)):
+                        for query_pos in query_dict[query][word]:
+                            if gene in db_dict[db_record]:
+                                for db_pos in db_dict[db_record][gene]:
+                                    if word[i] == db_record[i]:
+                                        matrix[query_pos+1,db_pos+i] = 1
+            if matrix.any():
+                hit_matrix[query][gene] = matrix
+    return hit_matrix
+
+
+
+
 #test_query = 'GACAGCGACGCCGCGAGCCAGAAGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGGCCGGAGTATTGGGACCAGGAGACACGGAATATGTTGGCCCACTCACAGACTGACCGAGCGAACCTGGGGACCCTGCGCTACTACTACAACCAGAGCGAGGACGGTTCTCACACCATCCAGATAATGTATGGCTGCGACGTGGGGCCGGACGGGCGCTTCCTCCGCGTACCGGCAGG'
 test_database = 'A_nuc.fasta'
 test_query = 'query.txt'
 seeds = query_seed_preparing(test_query)
-db = database_seed_preparing(test_database)
-#scores  = merge_scan_and_scoring(seeds,db)
-print(db)
+db,genes = database_seed_preparing(test_database)
+scores  = merge_scan_and_scoring(seeds,db)
+hit_matrix = build_hit_matrix(scores,seeds,db,genes)
+print(hit_matrix)
