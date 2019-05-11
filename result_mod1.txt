@@ -1,0 +1,198 @@
+query: ATAATGTATGGCTGCGACGTGGGGCCGGACGGGCGCTTCCTCCGCGGGTACCGGCAGGAC
+1	Gene:HLA11805	Length:27	Con:17	Score:18	Query:41,59	Ref:328,347
+Ref: CGCGGGTACGGGCAGGACG
+              +        
+Que: CGCGGGTACCGGCAGGAC
+
+2	Gene:HLA05904	Length:25	Con:16	Score:17	Query:42,59	Ref:329,347
+Ref: GCGGGTACCCGCAGGACG
+              +       
+Que: GCGGGTACCGGCAGGAC
+
+3	Gene:HLA10386	Length:25	Con:16	Score:17	Query:42,59	Ref:329,347
+Ref: GCGGGTACCAGCAGGACG
+              +       
+Que: GCGGGTACCGGCAGGAC
+
+4	Gene:HLA11970	Length:25	Con:16	Score:17	Query:42,59	Ref:329,347
+Ref: GCGGGTAGCGGCAGGACG
+            +         
+Que: GCGGGTACCGGCAGGAC
+
+5	Gene:HLA13436	Length:25	Con:16	Score:17	Query:42,59	Ref:329,347
+Ref: GCGGGTACTGGCAGGACG
+             +        
+Que: GCGGGTACCGGCAGGAC
+
+6	Gene:HLA03874	Length:21	Con:14	Score:15	Query:44,59	Ref:404,420
+Ref: GGGTGCCGGCAGGACG
+         +          
+Que: GGGTACCGGCAGGAC
+
+7	Gene:HLA08617	Length:21	Con:14	Score:15	Query:44,59	Ref:331,347
+Ref: GGGTACCGGTAGGACG
+              +     
+Que: GGGTACCGGCAGGAC
+
+8	Gene:HLA15402	Length:21	Con:14	Score:15	Query:44,59	Ref:331,347
+Ref: GGGTACCGGGAGGACG
+              +     
+Que: GGGTACCGGCAGGAC
+
+9	Gene:HLA16096	Length:23	Con:14	Score:15	Query:44,59	Ref:404,420
+Ref: GGGTACCGTCAGGACG
+             +      
+Que: GGGTACCGGCAGGAC
+
+10	Gene:HLA05333	Length:19	Con:13	Score:14	Query:45,59	Ref:332,347
+Ref: GGTACCGGCGGGACG
+              +    
+Que: GGTACCGGCAGGAC
+
+11	Gene:HLA11307	Length:17	Con:12	Score:13	Query:46,59	Ref:333,347
+Ref: GTACCGGCAAGACG
+              +   
+Que: GTACCGGCAGGAC
+
+12	Gene:HLA00123	Length:15	Con:11	Score:12	Query:47,59	Ref:407,420
+Ref: TACCGGCAGCACG
+              +  
+Que: TACCGGCAGGAC
+
+13	Gene:HLA13331	Length:15	Con:11	Score:12	Query:47,59	Ref:407,420
+Ref: TACCGCCAGGACG
+          +      
+Que: TACCGGCAGGAC
+
+14	Gene:HLA16872	Length:17	Con:11	Score:12	Query:47,59	Ref:407,420
+Ref: TACCGGCAGTACG
+              +  
+Que: TACCGGCAGGAC
+
+15	Gene:HLA01170	Length:13	Con:10	Score:11	Query:48,59	Ref:408,420
+Ref: ACCGGCAGGTCG
+              + 
+Que: ACCGGCAGGAC
+
+16	Gene:HLA16075	Length:13	Con:10	Score:11	Query:48,59	Ref:408,420
+Ref: ACCGGCAGGGCG
+              + 
+Que: ACCGGCAGGAC
+
+17	Gene:HLA11804	Length:11	Con:9	Score:10	Query:49,59	Ref:336,347
+Ref: CCGGCAGGATG
+              +
+Que: CCGGCAGGAC
+
+18	Gene:HLA04527	Length:13	Con:9	Score:10	Query:49,59	Ref:336,347
+Ref: CCGGCAGGAAG
+              +
+Que: CCGGCAGGAC
+
+query: GACAGCGACGCCGCGAGCCAGAAGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGG
+1	Gene:HLA06570	Length:31	Con:19	Score:20	Query:39,59	Ref:146,167
+Ref: CGTGGATAGGGCAGGAGGGGC
+              +          
+Que: CGTGGATAGAGCAGGAGGGG
+
+2	Gene:HLA05540	Length:29	Con:18	Score:19	Query:40,59	Ref:147,167
+Ref: GTGGATAGAACAGGAGGGGC
+              +         
+Que: GTGGATAGAGCAGGAGGGG
+
+3	Gene:HLA07323	Length:27	Con:17	Score:18	Query:41,59	Ref:148,167
+Ref: TGGATAGAGTAGGAGGGGC
+              +        
+Que: TGGATAGAGCAGGAGGGG
+
+4	Gene:HLA08447	Length:25	Con:16	Score:17	Query:42,59	Ref:149,167
+Ref: GGATAGAGCGGGAGGGGC
+              +       
+Que: GGATAGAGCAGGAGGGG
+
+5	Gene:HLA05313	Length:21	Con:14	Score:15	Query:44,59	Ref:151,167
+Ref: ATAGAGCAGCAGGGGC
+              +     
+Que: ATAGAGCAGGAGGGG
+
+6	Gene:HLA05461	Length:21	Con:14	Score:15	Query:44,59	Ref:151,167
+Ref: ATAGAGCAAGAGGGGC
+             +      
+Que: ATAGAGCAGGAGGGG
+
+7	Gene:HLA14916	Length:21	Con:14	Score:15	Query:44,59	Ref:151,167
+Ref: ATAGAGCACGAGGGGC
+             +      
+Que: ATAGAGCAGGAGGGG
+
+8	Gene:HLA17486	Length:23	Con:14	Score:15	Query:44,59	Ref:151,167
+Ref: ATAGAGCAGTAGGGGC
+              +     
+Que: ATAGAGCAGGAGGGG
+
+9	Gene:HLA05324	Length:17	Con:12	Score:13	Query:46,59	Ref:153,167
+Ref: AGAGCAGGACGGGC
+              +   
+Que: AGAGCAGGAGGGG
+
+10	Gene:HLA01208	Length:15	Con:11	Score:12	Query:47,59	Ref:154,167
+Ref: GAGCAGGAGAGGC
+              +  
+Que: GAGCAGGAGGGG
+
+11	Gene:HLA03690	Length:11	Con:9	Score:10	Query:49,59	Ref:156,167
+Ref: GCAGGTGGGGC
+          +    
+Que: GCAGGAGGGG
+
+12	Gene:HLA05636	Length:11	Con:9	Score:10	Query:49,59	Ref:156,167
+Ref: GCAGGAGGAGC
+             + 
+Que: GCAGGAGGGG
+
+13	Gene:HLA09523	Length:11	Con:9	Score:10	Query:49,59	Ref:156,167
+Ref: GCAGGAAGGGC
+           +   
+Que: GCAGGAGGGG
+
+14	Gene:HLA11798	Length:11	Con:9	Score:10	Query:49,59	Ref:156,167
+Ref: GCAGGAGGGCC
+              +
+Que: GCAGGAGGGG
+
+15	Gene:HLA12929	Length:11	Con:9	Score:10	Query:49,59	Ref:156,167
+Ref: GCAGAAGGGGC
+         +     
+Que: GCAGGAGGGG
+
+16	Gene:HLA04890	Length:13	Con:9	Score:10	Query:49,59	Ref:651,662
+Ref: GCAGGATGGGG
+           +   
+Que: GCAGGAGGGG
+
+17	Gene:HLA05823	Length:13	Con:9	Score:10	Query:49,59	Ref:783,794
+Ref: GCATGAGGGGC
+        +      
+Que: GCAGGAGGGG
+
+18	Gene:HLA12163	Length:13	Con:9	Score:10	Query:49,59	Ref:156,167
+Ref: GCAGGAGGGTC
+              +
+Que: GCAGGAGGGG
+
+query: GTGATCACTGGAGCTGTGGTCGCTGCCGTGATGTGGAGGAGGAAGAGCTCAGATAGAAAA
+1	Gene:HLA00130	Length:25	Con:16	Score:17	Query:42,59	Ref:1002,1020
+Ref: AGAGCTCAGTTAGAAAAG
+              +       
+Que: AGAGCTCAGATAGAAAA
+
+2	Gene:HLA15572	Length:21	Con:14	Score:15	Query:44,59	Ref:1004,1020
+Ref: AGCTCAGATGGAAAAG
+              +     
+Que: AGCTCAGATAGAAAA
+
+3	Gene:HLA15573	Length:15	Con:11	Score:12	Query:47,59	Ref:1007,1020
+Ref: TCAGATAGAGAAG
+              +  
+Que: TCAGATAGAAAA
+

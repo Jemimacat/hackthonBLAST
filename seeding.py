@@ -2,6 +2,7 @@ from Bio import SeqIO
 import numpy as np
 import fileinput
 from scoring import score_nt_seq
+from extend import extending_words,extending_words_positions
 
 # Genering seeds
 def seed_list_of_query_generating(query_seq,w=11):
@@ -78,16 +79,55 @@ def build_hit_matrix(scores,query_dict,db_dict,genes):
                                         matrix[query_pos+1,db_pos+i] = 1
             if matrix.any():
                 hit_matrix[query][gene] = matrix
+
     return hit_matrix
 
 
 
+# one_query = 'GACAGCGACGCCGCGAGCCAGAAGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGGCCGGAGTATTGGGACCAGGAGACACGGAATATGTTGGCCCACTCACAGACTGACCGAGCGAACCTGGGGACCCTGCGCTACTACTACAACCAGAGCGAGGACGGTTCTCACACCATCCAGATAATGTATGGCTGCGACGTGGGGCCGGACGGGCGCTTCCTCCGCGTACCGGCAGG'
+# test_database = 'A_nuc.fasta'
+# test_query = 'query.txt'
+# seeds = query_seed_preparing(test_query)
+# db,genes = database_seed_preparing(test_database)
+# scores  = merge_scan_and_scoring(seeds,db)
+# segment_hits = {}
 
-#test_query = 'GACAGCGACGCCGCGAGCCAGAAGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGGCCGGAGTATTGGGACCAGGAGACACGGAATATGTTGGCCCACTCACAGACTGACCGAGCGAACCTGGGGACCCTGCGCTACTACTACAACCAGAGCGAGGACGGTTCTCACACCATCCAGATAATGTATGGCTGCGACGTGGGGCCGGACGGGCGCTTCCTCCGCGTACCGGCAGG'
-test_database = 'A_nuc.fasta'
-test_query = 'query.txt'
-seeds = query_seed_preparing(test_query)
-db,genes = database_seed_preparing(test_database)
-scores  = merge_scan_and_scoring(seeds,db)
-hit_matrix = build_hit_matrix(scores,seeds,db,genes)
-print(hit_matrix)
+# for query in seeds.keys():
+#     one_query_dict = seeds[one_query]
+    
+
+
+# one_scores = scores[one_query]
+# #print(scores)
+# word = 'AGAGCAGGAGG'
+# word2 = 'GAGCAGGAGGG'
+# one_query_dict = seeds[one_query]
+# positions,db_positions = extending_words(word, one_query, one_scores, one_query_dict, db)
+# print(positions)
+# print(db_positions)
+#hit_matrix = build_hit_matrix(scores,seeds,db,genes)
+
+# for query in scores.keys():
+#     print(query+':')
+#     for word in scores[query].keys():
+#         print('\t'+word+':')
+#         for pair_w in scores[query][word].keys():
+#             print('\t\t'+pair_w+'\t'+str(scores[query][word][pair_w]))
+
+# for query in seeds.keys():
+#     print(query+':')
+#     for word in seeds[query].keys():
+#         print('\t'+word+':')
+#         for pos in seeds[query][word]:
+#             print('\t\t'+str(pos))
+
+# for word in db.keys():
+#     print(word+':')
+#     for gene in db[word].keys():
+#         print('\t'+gene+':')
+#         for pos in db[word][gene]:
+#             print('\t\t'+str(pos))
+
+# for gene in genes.keys():
+#     print(gene+':')
+#     print(genes[gene])
