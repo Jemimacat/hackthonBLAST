@@ -36,7 +36,8 @@ def extending_words_positions(word,query_seq,scores,one_query_dict,db_dict,max_g
                         next_pos = pos + 1
                         next_word = query_seq[next_pos:next_pos+len_of_word]
                         if not next_word in scores.keys():
-                            break   
+                            pos = next_pos
+                            continue
 
                         for (next_db_record,next_score) in sorted(scores[next_word].items(), key=lambda d:d[1], reverse=True):
                             if gene in db_dict[next_db_record].keys():
@@ -63,7 +64,9 @@ def extending_words_positions(word,query_seq,scores,one_query_dict,db_dict,max_g
                         prior_pos = pos - 1
                         prior_word = query_seq[prior_pos:prior_pos+len_of_word]
                         if not prior_word in scores.keys():
-                            break  
+                            pos = next_pos
+                            continue
+
                         for (prior_db_record,prior_score) in sorted(scores[prior_word].items(),key=lambda d:d[1], reverse=True):
                             if gene in db_dict[prior_db_record].keys():
                                 db_pos_diff = 999999
