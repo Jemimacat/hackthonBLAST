@@ -4,7 +4,7 @@ import pkg_resources
 from seeding import query_seed_preparing,database_seed_preparing,merge_scan_and_scoring
 from extend import extending_words,extending_words_positions
 
-one_query = 'GACAGCGACGCCGCGAGCCAGAAGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGGCCGGAGTATTGGGACCAGGAGACACGGAATATGTTGGCCCACTCACAGACTGACCGAGCGAACCTGGGGACCCTGCGCTACTACTACAACCAGAGCGAGGACGGTTCTCACACCATCCAGATAATGTATGGCTGCGACGTGGGGCCGGACGGGCGCTTCCTCCGCGTACCGGCAGG'
+#one_query = 'GACAGCGACGCCGCGAGCCAGAAGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGGCCGGAGTATTGGGACCAGGAGACACGGAATATGTTGGCCCACTCACAGACTGACCGAGCGAACCTGGGGACCCTGCGCTACTACTACAACCAGAGCGAGGACGGTTCTCACACCATCCAGATAATGTATGGCTGCGACGTGGGGCCGGACGGGCGCTTCCTCCGCGTACCGGCAGG'
 test_database = 'A_nuc.fasta'
 test_query = 'query.txt'
 seeds = query_seed_preparing(test_query)
@@ -17,6 +17,7 @@ for query in seeds.keys():
     one_scores = scores[query]
     for word in one_scores.keys():
         positions,db_positions = extending_words_positions(word, query, one_scores, one_query_dict, db, max_gap=5, step=1)
+        # print(db_positions)
         one_segment_hits = extending_words(word, query, positions, db_positions, genes)
         segment_hits.update({query:one_segment_hits})
 

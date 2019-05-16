@@ -3,11 +3,15 @@
 
 def score_nt_seq(seq1,seq2):
     score = 0
-    for i in range(len(seq1)):
-        base1 = seq1[i]
-        base2 = seq2[i]
-        tmp = score_nt(base1,base2)
-        score += tmp
+    
+    if len(seq1) == len(seq2):
+        for i in range(len(seq1)):
+            base1 = seq1[i]
+            base2 = seq2[i]
+            tmp = score_nt(base1,base2)
+            score += tmp
+    else:
+        score = -1
     return score
 
 def score_nt(base1,base2): # scoring function
