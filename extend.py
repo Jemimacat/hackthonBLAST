@@ -10,11 +10,11 @@ def extending_words_positions(word,query_seq,scores,one_query_dict,db_dict,max_g
     tag_q = 0
 
     for q_pos in one_query_dict[word]:
-        pos = q_pos
+        
         for (db_record,score) in sorted(scores[word].items(), key=lambda d:d[1], reverse=True):
             if not tag_q in positions.keys():
                 positions[tag_q] = {}
-            positions[tag_q][pos] = 1
+            positions[tag_q][q_pos] = 1
             if not tag_q in db_positions.keys():
                 db_positions[tag_q] = {}
 
@@ -24,20 +24,27 @@ def extending_words_positions(word,query_seq,scores,one_query_dict,db_dict,max_g
                     db_positions[tag_q][gene] = {}
 
                 for db_pos in db_dict[db_record][gene]:
-                    this_db_pos = db_pos
                     tag_db = 0
 
                     if not tag_db in db_positions[tag_q][gene].keys(): 
                         db_positions[tag_q][gene][tag_db] = {}
-                    db_positions[tag_q][gene][tag_db][this_db_pos] = q_pos
+                    db_positions[tag_q][gene][tag_db][db_pos] = q_pos
 
                     ## foreward
+                    gap = 0
+                    pos = q_pos
+                    this_db_pos = db_pos
+
                     while pos < num_of_words -1:
                         next_pos = pos + 1
                         next_word = query_seq[next_pos:next_pos+len_of_word]
                         if not next_word in scores.keys():
-                            pos = next_pos
-                            continue
+                            gap += 1
+                            if gap >= max_gap:
+                                break
+                            else:
+                                pos = next_pos
+                                continue
 
                         for (next_db_record,next_score) in sorted(scores[next_word].items(), key=lambda d:d[1], reverse=True):
                             if gene in db_dict[next_db_record].keys():
@@ -59,13 +66,18 @@ def extending_words_positions(word,query_seq,scores,one_query_dict,db_dict,max_g
                     ## backward
                     pos = q_pos
                     this_db_pos = db_pos
+                    gap = 0
 
                     while pos > 0:
                         prior_pos = pos - 1
                         prior_word = query_seq[prior_pos:prior_pos+len_of_word]
                         if not prior_word in scores.keys():
-                            pos = next_pos
-                            continue
+                            gap += 1
+                            if gap >= max_gap:
+                                break
+                            else:
+                                pos = prior_pos
+                                continue
 
                         for (prior_db_record,prior_score) in sorted(scores[prior_word].items(),key=lambda d:d[1], reverse=True):
                             if gene in db_dict[prior_db_record].keys():
